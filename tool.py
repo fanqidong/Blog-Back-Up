@@ -106,20 +106,20 @@ def handle_photo():
         year_month = date_str[0:7]            
         if i == 0:  # 处理第一个文件
             new_dict = {"date": year_month, "arr":{'year': date.year,
-                                                                   'month': date.month,
-                                                                   'link': [filename],
-                                                                   'text': [info],
-                                                                   'type': ['image']
-                                                                   }
-                                        } 
+                        'month': date.month,
+                        'link': [filename],
+                        'text': [info],
+                        'type': ['image']
+                        }
+                        } 
             list_info.append(new_dict)
         elif year_month != list_info[-1]['date']:  # 不是最后的一个日期，就新建一个dict
             new_dict = {"date": year_month, "arr":{'year': date.year,
-                                                   'month': date.month,
-                                                   'link': [filename],
-                                                   'text': [info],
-                                                   'type': ['image']
-                                                   }
+                        'month': date.month,
+                        'link': [filename],
+                        'text': [info],
+                        'type': ['image']
+                        }
                         }
             list_info.append(new_dict)
         else:  # 同一个日期
@@ -128,7 +128,7 @@ def handle_photo():
             list_info[-1]['arr']['type'].append('image')
     list_info.reverse()  # 翻转
     final_dict = {"list": list_info}
-    with open("../lawlite19.github.io/source/photos/data.json","w") as fp:
+    with open("../hexo-next/source/photos/data.json","w") as fp:
         json.dump(final_dict, fp)
 
 def cut_photo():
